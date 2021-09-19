@@ -1,7 +1,7 @@
 /**
  * Project: Calculator Author: Abdalrahman Shaath Last edited: 9/7/2021 This
  * class does all the basic arithamtic. This class is really just one method
- * that returns the arthimatic opertation.
+ * that returns the arthimatic opertation. d
  */
 
 public class BasicCalc {

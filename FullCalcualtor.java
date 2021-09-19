@@ -3,7 +3,7 @@
  * Author: Abdalrahman Shaath
  * Last edited: 9/7/2021
  * Brief Description: This program takes all the main classes
- * and turns it into a program where the user can do basic arithmatic
+ * and turns it into a program where the user can do basic arithmatic d
  * 
  */
 
@@ -13,30 +13,35 @@ public class FullCalcualtor {
 	public static void main(String args[]) throws CalcError {
 		BasicCalc Calc1 = new BasicCalc();
 		Scanner input = new Scanner(System.in);
-		String arithmetic = "";
+		String keyWord = "";
+		Equation mainEquations = new Equation();
 
-		System.out.println("Welcome to the Basic Calc program");
+		System.out.println("Welcome to the Calculator program");
 		System.out.println("Type END when you're done");
 
-		/*
-		 * Main While Loop
-		 * This while loop is where all the majic happens. The While-loop will 
-		 * end once the user types END. This loop uses the BasicCalc object, this object allows for
-		 * all the arthymitic to work. In the while loop, the prgoram asks the user to enter the
-		 * type of arithmetic they want to do. This is then put into a string. Then there is an 
-		 * if statement which makes sure that if the user enters an "END" statement, that no prompts 
-		 * are displayed. The program then asks for two integers from the user, those numbers are
-		 * then stored in variables. Then the numbers, and form of arithmetic are inputed into
-		 * the Calc1 object where the solution is displayed.  
+		/**
+		 * Chunk: 1
+		 * This while-loop keeps running until the user enters the word END.
+		 * The main variable keyWord takes the userInput. If the input is a keyletter/s
+		 * then it will be used for a complex equation. If it's not, it will then find
+		 * the addition of the two numbers
 		 */
-		while (!arithmetic.equals("END")) {
+		while (!keyWord.equals("END")) {
 			System.out.println("Do you want to Add, Subtract, Multiply, or Divide?");
-			arithmetic = input.next();
-			if (!arithmetic.equals("END")) {
-				System.out.println("What 2 numbers are you doing this Arithmetic?");
-				int num1 = input.nextInt();
-				int num2 = input.nextInt();
-				System.out.println(Calc1.base(num1, num2, arithmetic));
+			System.out.println("If you want to solve a complex equation, please type the keyletter/s");
+			System.out.println("This can be found on the Calculator.txt file");
+			keyWord = input.next();
+			if (!keyWord.equals("END")) {
+				if (keyWord.equals("Q")) {
+					mainEquations.Quadratic();
+			 	} else if (keyWord.equals("P")) {
+					mainEquations.Pythagoras();
+				} else {
+					System.out.println("What 2 numbers are you doing this Arithmetic?");
+					int num1 = input.nextInt();
+					int num2 = input.nextInt();
+					System.out.println(Calc1.base(num1, num2, keyWord));
+				}
 			}
 		}
 	}
